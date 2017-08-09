@@ -1,0 +1,2 @@
+# verbose-spoon
+script generator
