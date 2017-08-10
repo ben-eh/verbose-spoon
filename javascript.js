@@ -1,5 +1,7 @@
-document.getElementById("convert-button").addEventListener("click", function (e) {
+var testMp4 = 'https://edge.mb.gammae.com/pathfinder3/banners/Fame/TrannyPros/300x250/MP4/noprice/en/116809/116809_300x250_v1.mp4';
+var testPng = 'https://blahblahblah.png';
 
+document.getElementById("convert-button").addEventListener("click", function (e) {
 	//grab the mp4 and spit out the destination
 	var input_field = document.getElementById("result_field");
 	var output_field_script = document.getElementById("output-field-script");
@@ -8,6 +10,17 @@ document.getElementById("convert-button").addEventListener("click", function (e)
 
 	var str_to_check = input_field.value;
 	var png_output = input_field_png.value;
+
+	//grab radio button value
+	function getSelectedRadio() {
+		var elements = document.getElementsByName('radioButtons');
+
+		for (var i = 0, len = elements.length; i<len; ++i) {
+			if (elements[i].checked) {
+				return elements[i].value;
+			}
+		}
+	}
 
 	//get input values from mp4 input
 	if (str_to_check.indexOf("NextDoorBuddies") > -1) {
@@ -109,8 +122,23 @@ document.getElementById("convert-button").addEventListener("click", function (e)
 		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Buddy/NextDoorEbony/300x250/GIF/noprice/en/68683/68683_300x250_v1.gif";
 	}
 
+	var advid = getSelectedRadio();
+
 	//prepare outputs
 	output_field_script.value = "<div style=\"position: absolute; z-index: 255\"> \n<img src=\"" + png_output + "\" style=\"background-color: transparent; display: inline-block;\"></div> \n<video width=\"" + size[0] + "\" height=\"" + size[1] + "\" loop autoplay poster=\"" + backup + "\"> \n<source src=" + str_to_check + "  type=\"video/mp4\"> \n<img src=\"" + backup + "\"></video>";
-	output_field_dest.value = "http://" + product + "/" + site + "/go.php?pr=" + pr + "&su=" + su + "&si=" + si + "&pa=index&ar=&ad=248092&cs=mbnt&acampaign=" + abbr + "_" + scene_id + "_{zone}_{campaignID}_{adgroupID}_{creativeID}&gsub_id={transactionID}&gallery_id={transactionID}";
+	output_field_dest.value = "http://" + product + "/" + site + "/go.php?pr=" + pr + "&su=" + su + "&si=" + si + "&pa=index&ar=&ad=" + advid + "&cs=mbnt&acampaign=" + abbr + "_" + scene_id + "_{zone}_{campaignID}_{adgroupID}_{creativeID}&gsub_id={transactionID}&gallery_id={transactionID}";
 
+
+});
+
+// copy script button
+document.getElementById('copy-script-button').addEventListener('click', function(e) {
+	document.getElementById('output-field-script').select();
+	document.execCommand('copy');
+});
+
+// copy destination button
+document.getElementById('copy-dest-button').addEventListener('click', function(e) {
+	document.getElementById('output-field-dest').select();
+	document.execCommand('copy');
 });
