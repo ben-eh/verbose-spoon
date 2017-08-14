@@ -50,6 +50,15 @@ document.getElementById("convert-button").addEventListener("click", function (e)
 		var si = "117";
 	}
 
+	if (str_to_check.indexOf("TransSensual") > -1) {
+		var product = "www.iyalc.com";
+		var site = "transsensual";
+		var abbr = "TSS";
+		var pr = "8";
+		var su = "1";
+		var si = "194";
+	}
+
 	if (str_to_check.indexOf("IconMale") > -1) {
 		var product = "www.buddylead.com";
 		var site = "iconmale";
@@ -102,6 +111,7 @@ document.getElementById("convert-button").addEventListener("click", function (e)
 	}
 
 
+	//get backups for mp4 banners
 	if (abbr == "TPR" && get_size == "300x250") {
 		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Fame/TrannyPros/300x250/GIF/noprice/en/67000/67000_300x250_v1.gif";
 	}
@@ -122,10 +132,33 @@ document.getElementById("convert-button").addEventListener("click", function (e)
 		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Buddy/NextDoorEbony/300x250/GIF/noprice/en/68683/68683_300x250_v1.gif";
 	}
 
+	if (abbr == "NDR" && get_size == "300x250") {
+		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Buddy/NextDoorRaw/300x250/GIF/noprice/en/115279/115279_300x250_v1.gif";
+	}
+
+	if (abbr == "TSS" && get_size == "300x250") {
+		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Fame/TransSensual/300x250/GIF/noprice/en/74141/74141_300x250_v1.gif";
+	}
+
 	var advid = getSelectedRadio();
 
 	//prepare outputs
-	output_field_script.value = "<div style=\"position: absolute; z-index: 255\"> \n<img src=\"" + png_output + "\" style=\"background-color: transparent; display: inline-block;\"></div> \n<video width=\"" + size[0] + "\" height=\"" + size[1] + "\" loop autoplay poster=\"" + backup + "\"> \n<source src=" + str_to_check + "  type=\"video/mp4\"> \n<img src=\"" + backup + "\"></video>";
+	if (str_to_check.indexOf(".mp4") > -1) {
+		if (png_output == null || input_field_png == "") {
+			alert('field is empty');
+		}
+		output_field_script.value = "<div style=\"position: absolute; z-index: 255\"> \n<img src=\"" + png_output + "\" style=\"background-color: transparent; display: inline-block;\"></div> \n<video width=\"" + size[0] + "\" height=\"" + size[1] + "\" loop autoplay poster=\"" + backup + "\"> \n<source src=" + str_to_check + "  type=\"video/mp4\"> \n<img src=\"" + backup + "\"></video>";
+	}
+	else if (str_to_check.indexOf(".jpg") > -1) {
+		output_field_script.value = "<img src=\"" + str_to_check + "\">";
+	}
+	else if (str_to_check.indexOf(".gif") > -1) {
+		output_field_script.value = "<img src=\"" + str_to_check + "\">";
+	}
+	else {
+		alert('what you talkin bout Willis?!!?');
+	}
+
 	output_field_dest.value = "http://" + product + "/" + site + "/go.php?pr=" + pr + "&su=" + su + "&si=" + si + "&pa=index&ar=&ad=" + advid + "&cs=mbnt&acampaign=" + abbr + "_" + scene_id + "_{zone}_{campaignID}_{adgroupID}_{creativeID}&gsub_id={transactionID}&gallery_id={transactionID}";
 
 
