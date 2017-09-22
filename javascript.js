@@ -86,6 +86,60 @@ document.getElementById("convert-button").addEventListener("click", function (e)
 		var si = "51";
 	}
 
+	if (str_to_check.indexOf("EvilAngel") > -1) {
+		var product = "www.iyalc.com";
+		var site = "evilangel";
+		var abbr = "EA";
+		var pr = "8";
+		var su = "1";
+		var si = "128";
+	}
+
+	if (str_to_check.indexOf("SheMaleIdol") > -1) {
+		var product = "www.iyalc.com";
+		var site = "shemaleidol";
+		var abbr = "SMI";
+		var pr = "8";
+		var su = "1";
+		var si = "139";
+	}
+
+	if (str_to_check.indexOf("TSPlayground") > -1) {
+		var product = "www.iyalc.com";
+		var site = "tsplayground";
+		var abbr = "TSP";
+		var pr = "8";
+		var su = "1";
+		var si = "165";
+	}
+
+	if (str_to_check.indexOf("FootsieBabes") > -1) {
+		var product = "www.iyalc.com";
+		var site = "21sextury";
+		var abbr = "FB";
+		var pr = "8";
+		var su = "1";
+		var si = "207";
+	}
+
+	if (str_to_check.indexOf("GirlsWay") > -1) {
+		var product = "www.iyalc.com";
+		var site = "girlsway";
+		var abbr = "GW";
+		var pr = "8";
+		var su = "1";
+		var si = "187";
+	}
+
+	if (str_to_check.indexOf("NextDoorStudios") > -1) {
+		var product = "www.buddylead.com";
+		var site = "nextdoorstudios";
+		var abbr = "NDS";
+		var pr = "9";
+		var su = "1";
+		var si = "46";
+	}
+
 
 	//get the scene ID
 	var last_part = str_to_check.split('/');
@@ -140,14 +194,60 @@ document.getElementById("convert-button").addEventListener("click", function (e)
 		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Fame/TransSensual/300x250/GIF/noprice/en/74141/74141_300x250_v1.gif";
 	}
 
+	if (abbr == "SMI" && get_size == "300x250") {
+		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Fame/SheMaleIdol/300x250/GIF/noprice/en/73053/73053_300x250_v1.gif";
+	}
+
+	if (abbr == "TSP" && get_size == "300x250") {
+		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Fame/TSPlayground/300x250/GIF/noprice/en/67145/67145_300x250_v2.gif";
+	}
+
+	if (abbr == "TSS" && get_size == "160x600") {
+		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Fame/TransSensual/160x600/JPG/noprice/en/124666/tss_124666_160x600_v170001.jpg";
+	}
+
+	if (abbr == "TSS" && get_size == "160x600") {
+		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Fame/TransSensual/160x600/JPG/noprice/en/124666/tss_124666_160x600_v170001.jpg";
+	}
+
+	if (abbr == "TPR" && get_size == "160x600") {
+		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Fame/TrannyPros/160x600/JPG/noprice/en/TPR0004/TPR0004_160x600_v1.jpg";
+	}
+
+	if (abbr == "TSS" && get_size == "610x100") {
+		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Fame/TransSensual/610x100/JPG/noprice/en/79126/79126_610x100_v1.jpg";
+	}
+
+	if (abbr == "FB" && get_size == "315x300") {
+		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Fame/FootsieBabes/315x300/JPG/1doll/en/122107/122107_315x300_v1.jpg";
+	}
+
+	if (abbr == "GW" && get_size == "315x300") {
+		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Fame/GirlsWay/315x300/JPG/noprice/en/116646/116646_315x300_v1.jpg";
+	}
+
+	if (abbr == "NDB" && get_size == "315x300") {
+		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Buddy/NextDoorBuddies/315x300/JPG/noprice/en/117538/117538_315x300_v1.jpg";
+	}
+
+	if (abbr == "TPR" && get_size == "315x300") {
+		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Fame/TrannyPros/315x300/GIF/noprice/en/TPR0001/TPR0001_315x300_v1.gif";
+	}
+
+	if (abbr == "NDS" && get_size == "300x250") {
+		var backup = "https://edge.mb.gammae.com/pathfinder3/banners/Buddy/NextDoorStudios/300x250/GIF/noprice/en/122580/122580_300x250_v2.gif";
+	}
+
 	var advid = getSelectedRadio();
 
 	//prepare outputs
 	if (str_to_check.indexOf(".mp4") > -1) {
-		if (png_output == null || input_field_png == "") {
-			alert('field is empty');
+		if (png_output == null || png_output == "") {
+			output_field_script.value = "<video width=\"" + size[0] + "\" height=\"" + size[1] + "\" loop autoplay poster=\"" + backup + "\"> \n<source src=" + str_to_check + "  type=\"video/mp4\"> \n<img src=\"" + backup + "\"></video>";
 		}
-		output_field_script.value = "<div style=\"position: absolute; z-index: 255\"> \n<img src=\"" + png_output + "\" style=\"background-color: transparent; display: inline-block;\"></div> \n<video width=\"" + size[0] + "\" height=\"" + size[1] + "\" loop autoplay poster=\"" + backup + "\"> \n<source src=" + str_to_check + "  type=\"video/mp4\"> \n<img src=\"" + backup + "\"></video>";
+		else {
+			output_field_script.value = "<div style=\"position: absolute; z-index: 255\"> \n<img src=\"" + png_output + "\" style=\"background-color: transparent; display: inline-block;\"></div> \n<video width=\"" + size[0] + "\" height=\"" + size[1] + "\" loop autoplay poster=\"" + backup + "\"> \n<source src=" + str_to_check + "  type=\"video/mp4\"> \n<img src=\"" + backup + "\"></video>";
+		}
 	}
 	else if (str_to_check.indexOf(".jpg") > -1) {
 		output_field_script.value = "<img src=\"" + str_to_check + "\">";

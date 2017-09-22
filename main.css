@@ -2,3 +2,9 @@
 	width: 1200px;
 }
 
+.buttons {
+	-webkit-column-count: 3;
+	column-count: 3;
+	padding-left: 200px;
+	padding-top: 50px;
+}
